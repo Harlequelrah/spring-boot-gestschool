@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des Étudiants</title>
+</head>
+
+<body>
+
+  <h1>Liste des Étudiants</h1>
+
+  <!-- Vérifier si la liste des étudiants est vide -->
+  <div th:if="${students.isEmpty()}">
+    <p>Aucun étudiant n'a été trouvé.</p>
+  </div>
+
+  <div th:if="${not students.isEmpty()}">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Téléphone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Boucle sur chaque étudiant pour afficher ses détails -->
+        <tr th:each="student : ${students}">
+          <td th:text="${student.Id}"></td>
+          <td th:text="${student.lastName}"></td>
+          <td th:text="${student.firstName}"></td>
+          <td th:text="${student.phone}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
