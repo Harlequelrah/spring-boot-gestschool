@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Étudiant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles.css}" /></head>
+<body>
+<div class="student-registration-wrapper">
+    <div class="registration-container">
+        <div class="registration-header">
+            <h1>Inscription Étudiant</h1>
+            <p>Rejoignez notre communauté académique</p>
+        </div>
+
+        <form id="studentForm" class="student-form" th:action="@{/students/save-student}" th:object="${student}" method="post">
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="firstName">Prénom</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="Votre prénom"
+                                th:field="*{firstName}"
+                                required
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="lastName">Nom</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                th:field="*{lastName}"
+                                placeholder="Votre nom"
+                                required
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="age">Âge</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input
+                                type="number"
+                                id="age"
+                                name="age"
+                                placeholder="Votre âge"
+                                min="16"
+                                max="99"
+                                th:field="*{age}"
+                                required
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Téléphone</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                th:field="*{phone}"
+                                placeholder="Numéro de téléphone"
+                                required
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">
+                    <span>S'inscrire</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- <script type="text/javascript" th:src="@{/scripts.js}"></script></body> -->
+</html>
